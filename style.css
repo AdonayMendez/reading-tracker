@@ -1,0 +1,58 @@
+.cards {
+  display: flex;
+  gap: 1rem;
+  background-color: rgba(0, 0, 0, 0.712);
+  padding: 1rem;
+  margin: 1rem 0;
+  flex-wrap: wrap;
+}
+
+.card {
+  /* display:none; */
+  width: 10rem;
+  height: 15rem;
+  background-color: orange;
+}
+/* 
+.card.show{
+  display: block;
+} */
+
+
+.addBtn{
+  background-color: rgba(128, 0, 128, 0.573); 
+  color: white; 
+  border: none; 
+  cursor: pointer;
+}
+
+.addBtn:hover{
+  background-color: purple; 
+}
+
+form {
+  margin: 0 auto;
+  width: 20rem;
+  display: flex;
+  flex-direction: column;
+  background-color: lightgreen;
+  padding: 1rem;
+}
+
+.error{
+  font-weight: bold; 
+  color: red; 
+}
+
+.inputError{
+  border: 2px solid red;
+}
+
+
+.hide{
+  display:none; 
+}
+
+.show{
+  display: block;
+}

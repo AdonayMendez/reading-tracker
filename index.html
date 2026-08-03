@@ -1,0 +1,49 @@
+<!doctype html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" type="text/css" />
+    <script defer src="script.js"></script>
+
+    <title>Reading Tracker</title>
+  </head>
+
+  <body>
+    <header>
+      <button>All</button>
+      <button>Reading</button>
+      <button>Completed</button>
+    </header>
+
+    <main>
+      <div>
+        <form novalidate>
+          <label for="bookTitle" class="bookTitleLabel">Book Title?</label>
+          <!-- <label for="bookTitle" class="show">Must enter a book title!</label> -->
+          <input type="text" class="bookTitleInput" id="bookTitle" name="bookTitle"> 
+          <br>
+          <label for="pagesRead" class="bookPagesReadLabel">Pages read?</label>
+          <input type="number" class="bookPagesReadInput" id="pagesRead" name="pagesRead"> <br>
+          
+          <label for="reading" class="radioReading">
+
+          <input type="radio" name="status" id="reading" value="reading">
+            Reading
+          </label>
+
+    
+          <label for="completed" class="radioCompleted">
+          <input type="radio" name="status" id="completed" value="completed">
+          Completed
+          </label>
+          <br>
+
+          <button type="submit" id="formBtn" class="form-Btn">Submit Book</button>
+        </form>
+      </div>
+      <div class="cards"></div>
+    </main>
+  </body>
+</html>
