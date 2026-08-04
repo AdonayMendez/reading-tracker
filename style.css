@@ -20,6 +20,7 @@
   --navy: rgb(22, 13, 32);
   --navy900: #1C1F4A;
   --white100: rgba(255, 255, 255, 37%); 
+  --white200: rgba(255, 255, 255, 60%); 
   --shadeWhite: rgba(255, 255, 255, 80%); 
   --white: rgba(255, 255, 255); 
 }
@@ -96,12 +97,59 @@ form {
 label{
   color: var(--white);
   font-size: 2.5rem;
+  display: flex; 
+  flex-direction: column;
+  /* align-items: center; */
+}
+
+input{
+  background-color: var(--white100);
+  border: none;
+  padding: 1rem;
+}
+
+input[type="radio"] {
+  -webkit-appearance: none; 
+  appearance: none; 
+  background-color: white;
+
+  width: 1.4rem; 
+  height: 1.4rem; 
+
+  border-radius: 50%;
+
+  display: inline-grid;
+  place-content: center; 
+  cursor: pointer;
+}
+
+.radioCompleted, .radioReading{
+  align-items: center;
+}
+
+input[type="radio"]::before{
+  content: "";
+  width: 1rem; 
+  height: 1rem; 
+  border-radius: 50%; 
+  transform: scale(0);
+  transition: 120ms transform ease-in-out; 
+  background-color: #0076ff;
+}
+
+input[type="radio"]:checked::before{
+  transform: scale(1);
 }
 
 .form-Btn{
   width: fit-content;
   margin: 0 auto;
-  padding: 0 3rem;
+  padding: .3rem 3rem;
+  font-family: "Jolly Lodger";
+  font-size: 1.8rem;
+  background-color: var(--white100);
+  color: white; 
+  border: none;
 }
 
 .error{
