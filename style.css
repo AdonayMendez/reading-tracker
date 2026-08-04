@@ -1,9 +1,130 @@
+/* jim-nightshade-regular - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Jim Nightshade';
+  font-style: normal;
+  font-weight: 400;
+  src: url('/fonts/jim-nightshade-v21-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* jolly-lodger-regular - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Jolly Lodger';
+  font-style: normal;
+  font-weight: 400;
+  src: url('/fonts/jolly-lodger-v21-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+:root{
+  --navy: rgb(22, 13, 32);
+  --navy900: #1C1F4A;
+  --white100: rgba(255, 255, 255, 37%); 
+  --shadeWhite: rgba(255, 255, 255, 80%); 
+  --white: rgba(255, 255, 255); 
+}
+
+*, 
+*::before, 
+*::after {
+  box-sizing: border-box; 
+  padding: 0; 
+  margin: 0; 
+}
+
+body{
+  background-color: var(--navy);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: 100vh; 
+  /* color: white; */
+  font-family: "Jolly Lodger";
+}
+
+h1, h2{
+  color: white;
+}
+
+main{
+  display: flex;
+  flex-direction: column; 
+  align-items: center;
+}
+
+.title__container{
+  flex: 1;
+  /* background-color: green; */
+  width: 100%; 
+  display: flex; 
+  align-items: center;
+  padding-left: 1rem;
+
+  h1{
+    font-weight: 100;
+    font-size: 7.5rem;
+    letter-spacing: 4px;
+    transform: rotate(-13deg);
+  }
+
+}
+
+.form-container{
+  flex: 2;
+  width: 100%;
+  height: 100%;
+  padding: 0rem 2rem;
+  /* background-color: orange; */
+
+  h2{
+    color: var(--shadeWhite);
+    text-align: center;
+    font-size: 3rem;
+    font-weight: 100;
+  }
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--navy900);
+  /* height: 35rem; */
+  padding: 2rem;
+  border: 5px solid var(--shadeWhite);
+  border-radius: 4rem;
+}
+
+label{
+  color: var(--white);
+  font-size: 2.5rem;
+}
+
+.form-Btn{
+  width: fit-content;
+  margin: 0 auto;
+  padding: 0 3rem;
+}
+
+.error{
+  font-weight: bold; 
+  color: red; 
+}
+
+.inputError{
+  border: 2px solid red;
+}
+
+
+.books-section{
+  /* background-color: green;  */
+  padding: 1rem;
+}
+
 .cards {
   display: flex;
+  height: 100%;
   gap: 1rem;
-  background-color: rgba(0, 0, 0, 0.712);
+  background-color: var(--navy900);
   padding: 1rem;
-  margin: 1rem 0;
   flex-wrap: wrap;
 }
 
@@ -30,29 +151,4 @@
   background-color: purple; 
 }
 
-form {
-  margin: 0 auto;
-  width: 20rem;
-  display: flex;
-  flex-direction: column;
-  background-color: lightgreen;
-  padding: 1rem;
-}
 
-.error{
-  font-weight: bold; 
-  color: red; 
-}
-
-.inputError{
-  border: 2px solid red;
-}
-
-
-.hide{
-  display:none; 
-}
-
-.show{
-  display: block;
-}

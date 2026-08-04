@@ -11,14 +11,21 @@
   </head>
 
   <body>
-    <header>
+    <!-- <header>
       <button>All</button>
       <button>Reading</button>
       <button>Completed</button>
-    </header>
+    </header> -->
 
     <main>
-      <div>
+      <div class="title__container">
+        <h1>Reading Tracker</h1>
+      </div>
+
+
+
+      <div class="form-container">
+        <h2>Submit a book</h2>
         <form novalidate>
           <label for="bookTitle" class="bookTitleLabel">Book Title?</label>
           <!-- <label for="bookTitle" class="show">Must enter a book title!</label> -->
@@ -27,23 +34,29 @@
           <label for="pagesRead" class="bookPagesReadLabel">Pages read?</label>
           <input type="number" class="bookPagesReadInput" id="pagesRead" name="pagesRead"> <br>
           
+          <div style="display: flex; justify-content: space-evenly;">
           <label for="reading" class="radioReading">
-
           <input type="radio" name="status" id="reading" value="reading">
             Reading
           </label>
-
     
           <label for="completed" class="radioCompleted">
           <input type="radio" name="status" id="completed" value="completed">
           Completed
           </label>
+          </div>
           <br>
 
           <button type="submit" id="formBtn" class="form-Btn">Submit Book</button>
         </form>
       </div>
-      <div class="cards"></div>
+    
+    
     </main>
+
+    <section class="books-section">
+      <div class="cards"></div>
+    </section>
+
   </body>
 </html>
