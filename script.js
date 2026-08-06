@@ -27,8 +27,16 @@ const handleClick = (e) => {
     cardContainer.innerHTML = "";
 
     books.forEach((book) => {
+      const currentStatus = book.status; 
+
       const div = document.createElement("div");
       div.classList.add("card");
+
+      if(currentStatus === "reading"){
+        div.classList.add("reading"); 
+      } else {
+        div.classList.add("completed");
+      }
 
       const addBtn = document.createElement("button");
       addBtn.classList.add("addBtn");
@@ -38,8 +46,8 @@ const handleClick = (e) => {
         book.pagesRead += 10;
 
         div.innerHTML = `
-          <p>Title: ${book.title}</p>
-          <p>Pages read: ${book.pagesRead}</p>
+          <h1>${book.title}</h1>
+          <p>Pages Read: ${book.pagesRead}</p>
           <p>Status: ${book.status}</p>
         `;
 
@@ -47,8 +55,8 @@ const handleClick = (e) => {
       });
 
       div.innerHTML = `
-      <p>Title: ${book.title}</p>
-      <p>Pages read: ${book.pagesRead}</p>
+      <h1>${book.title}</h1>
+      <p>Pages Read: ${book.pagesRead}</p>
       <p>Status: ${book.status}</p>
     `;
       div.appendChild(addBtn);
@@ -64,6 +72,7 @@ const handleClick = (e) => {
     readingBooks.forEach((book) => {
       const div = document.createElement("div");
       div.classList.add("card");
+      div.classList.add("reading");
 
       const addBtn = document.createElement("button");
       addBtn.classList.add("addBtn");
@@ -73,8 +82,8 @@ const handleClick = (e) => {
         book.pagesRead += 10;
 
         div.innerHTML = `
-          <p>Title: ${book.title}</p>
-          <p>Pages read: ${book.pagesRead}</p>
+          <h1>${book.title}</h1>
+          <p>Pages Read: ${book.pagesRead}</p>
           <p>Status: ${book.status}</p>
         `;
 
@@ -82,8 +91,8 @@ const handleClick = (e) => {
       });
 
       div.innerHTML = `
-        <p>Title: ${book.title}</p>
-        <p>Pages read: ${book.pagesRead}</p>
+        <h1>${book.title}</h1>
+        <p>Pages Read: ${book.pagesRead}</p>
         <p>Status: ${book.status}</p>
       `;
       div.appendChild(addBtn);
@@ -99,6 +108,7 @@ const handleClick = (e) => {
     completedBooks.forEach((book) => {
       const div = document.createElement("div");
       div.classList.add("card");
+      div.classList.add("completed");
 
       const addBtn = document.createElement("button");
       addBtn.classList.add("addBtn");
@@ -108,8 +118,8 @@ const handleClick = (e) => {
         book.pagesRead += 10;
 
         div.innerHTML = `
-          <p>Title: ${book.title}</p>
-          <p>Pages read: ${book.pagesRead}</p>
+          <h1>${book.title}</h1>
+          <p>Pages Read: ${book.pagesRead}</p>
           <p>Status: ${book.status}</p>
         `;
 
@@ -117,8 +127,8 @@ const handleClick = (e) => {
       });
 
       div.innerHTML = `
-        <p>Title: ${book.title}</p>
-        <p>Pages read: ${book.pagesRead}</p>
+        <h1>${book.title}</h1>
+        <p>Pages Read: ${book.pagesRead}</p>
         <p>Status: ${book.status}</p>
       `;
       div.appendChild(addBtn);
@@ -175,6 +185,12 @@ const handleSubmit = () => {
   const div = document.createElement("div"); 
   div.classList.add("card"); 
 
+  if(newBook.status === "reading"){
+    div.classList.add("reading"); 
+  } else{
+    div.classList.add("completed");
+  }
+
   const addBtn = document.createElement("button"); 
   addBtn.classList.add("addBtn"); 
   addBtn.textContent = `+10 Pages`;
@@ -182,11 +198,9 @@ const handleSubmit = () => {
   addBtn.addEventListener("click", (e) => {
       newBook.pagesRead += 10; 
 
-     console.log(typeof newBook.pagesRead);
-
     div.innerHTML = `
-      <p>Title: ${newBook.title}</p>
-      <p>Pages read: ${newBook.pagesRead}</p>
+      <h1>${newBook.title}</h1>
+      <p>Pages Read: ${newBook.pagesRead}</p>
       <p>Status: ${newBook.status}</p>
     `;
 
@@ -194,8 +208,8 @@ const handleSubmit = () => {
   });
 
   div.innerHTML = `
-    <p>Title: ${newBook.title}</p>
-    <p>Pages read: ${newBook.pagesRead}</p>
+    <h1>${newBook.title}</h1>
+    <p>Pages Read: ${newBook.pagesRead}</p>
     <p>Status: ${newBook.status}</p>
   `;
 
@@ -230,9 +244,18 @@ fetch("data.json")
   .then((data) => {
     books = data;
 
+
     books.forEach((book) => {
+      const currentStatus = book.status;
       const div = document.createElement("div");
       div.classList.add("card");
+
+      
+      if(currentStatus === "completed"){
+        div.classList.add("completed");
+      } else {
+        div.classList.add("reading");
+      }
 
       const addBtn = document.createElement("button");
       addBtn.classList.add("addBtn");
@@ -242,8 +265,8 @@ fetch("data.json")
         book.pagesRead += 10;
 
         div.innerHTML = `
-          <p>Title: ${book.title}</p>
-          <p>Pages read: ${book.pagesRead}</p>
+          <h1>${book.title}</h1>
+          <p>Pages Read: ${book.pagesRead}</p>
           <p>Status: ${book.status}</p>
         `;
 
@@ -251,9 +274,10 @@ fetch("data.json")
       });
 
       div.innerHTML = `
-        <p>Title: ${book.title}</p>
-        <p>Pages read: ${book.pagesRead}</p>
+        <h1>${book.title}</h1>
+        <p>Pages Read: ${book.pagesRead}</p>
         <p>Status: ${book.status}</p>
+   
       `;
       div.appendChild(addBtn);
       cardContainer.appendChild(div);
