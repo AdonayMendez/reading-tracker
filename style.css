@@ -4,7 +4,7 @@
   font-family: 'Jim Nightshade';
   font-style: normal;
   font-weight: 400;
-  src: url('/fonts/jim-nightshade-v21-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  src: url('fonts/jim-nightshade-v21-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
 /* jolly-lodger-regular - latin */
@@ -13,13 +13,13 @@
   font-family: 'Jolly Lodger';
   font-style: normal;
   font-weight: 400;
-  src: url('/fonts/jolly-lodger-v21-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  src: url('fonts/jolly-lodger-v21-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
 :root{
   --navy: rgb(22, 13, 32);
   --navy900: #1C1F4A;
-  --white50: rgba(255, 255, 255, 20%); 
+  --white50: rgba(255, 255, 255, 0.058); 
   --white100: rgba(255, 255, 255, 37%); 
   --white200: rgba(255, 255, 255, 60%); 
   --shadeWhite: rgba(255, 255, 255, 80%); 
