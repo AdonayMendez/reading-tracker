@@ -1,8 +1,10 @@
 const buttons = document.querySelectorAll('button:not(.form-Btn)');
 const cardContainer = document.querySelector(".cards");
+const submitBookHeading = document.getElementById("submitBookHeading");
 const form = document.querySelector("form");
 const formBtn = document.getElementById("formBtn"); 
 const input = document.querySelectorAll("input");
+const formContainer = document.querySelector(".form-container");
 
 const bookTitle = document.getElementById("bookTitle");
 const pagesRead = document.getElementById("pagesRead");
@@ -150,6 +152,7 @@ const handleSubmit = () => {
     bookTitleInput.classList.add("inputError"); 
     form.classList.add("formError");
     formBtn.classList.add("sad");
+    submitBookHeading.classList.add("error");
     return;
   } 
     bookTitleLabel.classList.remove("error"); 
@@ -157,33 +160,43 @@ const handleSubmit = () => {
     bookTitleLabel.textContent = 'Book Title?';
     form.classList.remove("formError");
     formBtn.classList.remove("sad");
+    submitBookHeading.classList.remove("error");
 
 
-
-  if(Number(pagesRead.value) <= 0){
-    console.log("Error: Pages read must be above 0"); 
+  if(Number(pagesRead.value) === 0){
     bookPagesReadLabel.classList.add("error"); 
-    bookPagesReadLabel.textContent = 'Enter appropriate number!';
+    bookPagesReadLabel.textContent = 'Enter a number!';
     bookPagesReadInput.classList.add("inputError"); 
+    form.classList.add("formError");
     formBtn.classList.add("sad");
+    submitBookHeading.classList.add("error");
     return; 
-  } 
+  } else if(Number(pagesRead.value) < 0){
+    bookPagesReadLabel.textContent = 'Enter appropriate number!';
+    return; 
+  }
     bookPagesReadLabel.classList.remove("error"); 
     bookPagesReadLabel.textContent = 'Pages Read?';
-    bookPagesReadInput.classList.remove("inputError"); 
+    bookPagesReadInput.classList.remove("inputError");
+    form.classList.remove("formError");
     formBtn.classList.remove("sad");
+    submitBookHeading.classList.remove("error");
 
   
   if (!selectedStatus){
     console.log("Error: Must select an option"); 
     radioReading.classList.add("error"); 
     radioCompleted.classList.add("error"); 
+    form.classList.add("formError");
     formBtn.classList.add("sad");
+    submitBookHeading.classList.add("error");
     return;
   } 
     radioReading.classList.remove("error"); 
     radioCompleted.classList.remove("error");
+    form.classList.remove("formError");
     formBtn.classList.remove("sad");
+    submitBookHeading.classList.remove("error");
 
   const newBook = {
     title: bookTitle.value,
@@ -235,11 +248,33 @@ buttons.forEach((btn) => {
   btn.addEventListener("click", handleClick);
 });
 
-
 form.addEventListener("submit", (e) => {
   e.preventDefault();
   handleSubmit();
 });
+
+window.addEventListener("click", (e) => {
+  const isInside = formContainer.contains(e.target); 
+
+  if(!isInside) {
+    bookPagesReadLabel.textContent = 'Pages Read?';
+    bookTitleLabel.textContent = 'Book Title?';
+
+    bookTitleLabel.classList.remove("error");
+    bookPagesReadLabel.classList.remove("error"); 
+    radioReading.classList.remove("error"); 
+    radioCompleted.classList.remove("error");
+    submitBookHeading.classList.remove("error");
+
+
+    bookTitleInput.classList.remove("inputError"); 
+    bookPagesReadInput.classList.remove("inputError");
+
+
+    form.classList.remove("formError");
+    formBtn.classList.remove("sad");
+   }
+})
 
 
 
