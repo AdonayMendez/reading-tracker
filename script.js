@@ -148,31 +148,42 @@ const handleSubmit = () => {
     bookTitleLabel.classList.add("error"); 
     bookTitleLabel.textContent = 'Must enter a book title!';
     bookTitleInput.classList.add("inputError"); 
+    form.classList.add("formError");
+    formBtn.classList.add("sad");
     return;
   } 
     bookTitleLabel.classList.remove("error"); 
     bookTitleInput.classList.remove("inputError"); 
     bookTitleLabel.textContent = 'Book Title?';
+    form.classList.remove("formError");
+    formBtn.classList.remove("sad");
+
+
 
   if(Number(pagesRead.value) <= 0){
     console.log("Error: Pages read must be above 0"); 
     bookPagesReadLabel.classList.add("error"); 
     bookPagesReadLabel.textContent = 'Enter appropriate number!';
     bookPagesReadInput.classList.add("inputError"); 
+    formBtn.classList.add("sad");
     return; 
   } 
     bookPagesReadLabel.classList.remove("error"); 
     bookPagesReadLabel.textContent = 'Pages Read?';
     bookPagesReadInput.classList.remove("inputError"); 
+    formBtn.classList.remove("sad");
+
   
   if (!selectedStatus){
     console.log("Error: Must select an option"); 
     radioReading.classList.add("error"); 
     radioCompleted.classList.add("error"); 
+    formBtn.classList.add("sad");
     return;
   } 
     radioReading.classList.remove("error"); 
-    radioCompleted.classList.remove("error"); 
+    radioCompleted.classList.remove("error");
+    formBtn.classList.remove("sad");
 
   const newBook = {
     title: bookTitle.value,
